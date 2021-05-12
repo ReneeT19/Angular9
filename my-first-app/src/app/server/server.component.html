@@ -3,6 +3,13 @@
 <input type="text" [(ngModel)]="serverId"><br>
 <button class="btn btn-primary" (click)="getServerStatus()">Add Server</button>
 <p>Server is created. Server name is {{ name }} and the id is {{ serverId }}</p>
+<hr>
+<h3>Below is output from the tutorial practice</h3>
+<!-- string interpolation practice -->
+<p> {{ 'Server' }} with id {{ serverId2 }} is {{ serverStatus }} </p>
+<p> {{ 'Server' }} with id {{ serverId2 }} is {{ getServerStatus2() }} </p>
+
+
 
 <div *ngIf="isSubmitted">
 <div *ngIf="isOnline; else offline">
