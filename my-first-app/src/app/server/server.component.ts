@@ -26,8 +26,19 @@ export class ServerComponent  {
   //below is from the tutorial for string interpolation
   serverId2: number = 10;
   serverStatus: string = 'offline';
+
   //you can call a method as well but you need to make sure you return a string or something can be converted to a string
   getServerStatus2() {
     return this.serverStatus;
   }
+  
+  //property binding
+  allowNewServer = false;
+
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
+  }
+
 }
