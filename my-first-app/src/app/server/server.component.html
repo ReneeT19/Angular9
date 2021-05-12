@@ -1,0 +1,14 @@
+<label>Server name</label><br>
+<input type="text" [(ngModel)]="name">
+<input type="text" [(ngModel)]="serverId"><br>
+<button class="btn btn-primary" (click)="getServerStatus()">Add Server</button>
+<p>Server is created. Server name is {{ name }} and the id is {{ serverId }}</p>
+
+<div *ngIf="isSubmitted">
+<div *ngIf="isOnline; else offline">
+    <app-success-alert></app-success-alert>
+</div>
+<ng-template #offline>
+    <app-warning-alert></app-warning-alert>
+</ng-template>
+</div>
