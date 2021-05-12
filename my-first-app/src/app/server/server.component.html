@@ -1,8 +1,15 @@
 <label>Server name</label><br>
-<input type="text" [(ngModel)]="name">
+<input type="text" [(ngModel)]="name"><br>
+<label>Server Id</label><br>
 <input type="text" [(ngModel)]="serverId"><br>
-<button class="btn btn-primary" (click)="getServerStatus()" [disabled]="!allowNewServer">Add Server</button>
+<label>Server name update</label><br>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<p>{{serverName}}</p><br> 
+
+<button class="btn btn-primary" (click)="getServerStatus()" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button>
+<p>{{ serverCreationStatus }}</p>
 <p>Server is created. Server name is {{ name }} and the id is {{ serverId }}</p>
+
 <div *ngIf="isSubmitted">
     <div *ngIf="isOnline; else offline">
         <app-success-alert></app-success-alert>
