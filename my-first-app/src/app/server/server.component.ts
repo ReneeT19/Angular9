@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.css']
+  // styleUrls: ['./server.component.css']
+  styles: [`
+  .online {
+    color: yellow;
+  }`]
 })
 export class ServerComponent  {
 
@@ -12,6 +16,9 @@ export class ServerComponent  {
   isOnline: boolean;
   isSubmitted = false;
   userName = "";
+  serverCreated = false;
+  //to use ngFor instead of calling <app-server> twice in servers.component.html
+  servers = ['Testserver', 'Testserver 2'];
 
   getServerStatus() {
     this.isSubmitted = true;
@@ -33,10 +40,15 @@ export class ServerComponent  {
     return this.serverStatus;
   }
   
+  getColor() {
+    return this.serverStatus === 'online' ? 'green' : 'red';
+  }
   //property binding
   allowNewServer = false;
 
   constructor() {
+    this.serverStatus = Math.random() > 0.5 ? 'online': 'offline';
+
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
@@ -48,6 +60,9 @@ export class ServerComponent  {
   serverName = "two-way binding"; //  two-way binding
 
   onCreateServer() {
+    this.serverCreated = true;
+    //to use ngFor
+    this.servers.push(this.serverName);
     this.serverCreationStatus = "Server was created and the name is " + this.serverName;
   }
 

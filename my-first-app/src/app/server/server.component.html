@@ -11,10 +11,11 @@
 <!-- practice twoway binding -->
 <label>Two-way binding username practice</label><br>
 <input type="text" class="form-control" [(ngModel)]="userName">
-<p>The username is {{userName}}</p><br>
+<p *ngIf="serverCreated; else noServer">The username is {{userName}}</p>
+<ng-template #noServer><p>Nothing created</p></ng-template><br>
 <button class="btn btn-primary" (click)="userName = ''" [disabled]="userName === ''">Reset User</button>
 
-<button class="btn btn-primary" (click)="getServerStatus()" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button>
+<!-- <button class="btn btn-primary" (click)="getServerStatus()" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button> -->
 <p>{{ serverCreationStatus }}</p>
 <p>Server is created. Server name is {{ name }} and the id is {{ serverId }}</p>
 
@@ -30,7 +31,8 @@
 <hr>
 <h3>Below is output from the tutorial practice</h3>
 <!-- string interpolation practice -->
-<p> {{ 'Server' }} with id {{ serverId2 }} is {{ serverStatus }} </p>
+<p [ngStyle]="{backgroundColor: getColor()}"
+[ngClass]="{online: serverStatus === 'online'}"> {{ 'Server' }} with id {{ serverId2 }} is {{ serverStatus }} </p>
 <p> {{ 'Server' }} with id {{ serverId2 }} is {{ getServerStatus2() }} </p>
 
 
