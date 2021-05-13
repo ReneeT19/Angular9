@@ -12,7 +12,11 @@ import { Component, OnInit } from '@angular/core';
   // <app-server></app-server>
   // <app-server></app-server>
   // `,
-  styleUrls: ['./servers.component.css']
+  // styleUrls: ['./servers.component.css']
+  styles: [`
+  .log {
+    color: yellow;
+  }`]
 })
 export class ServersComponent {
   servers = ['Testserver', 'Testserver 2'];
@@ -25,6 +29,9 @@ export class ServersComponent {
   isSubmitted = false;
   allowNewServer = false;
   serverStatus: string = 'offline';
+  isDisplayed: boolean;
+  counts = [];
+  count = 0;
 
   constructor() {
     setTimeout(() => {
@@ -52,5 +59,13 @@ export class ServersComponent {
 
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  displayDetails() {
+    this.isDisplayed = !this.isDisplayed;
+    this.count++;
+    // this.counts.push(this.count);
+    //use timestamp
+    this.counts.push(new Date());
   }
 }

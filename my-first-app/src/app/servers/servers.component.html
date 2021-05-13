@@ -3,3 +3,13 @@
 <button class="btn btn-primary" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button>
 <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 <app-server *ngFor="let server of servers"></app-server>
+
+<button class="btn btn-primary" (click)="displayDetails()">Display Details</button>
+<p *ngIf="isDisplayed">Secret Password = tuna</p>
+<div *ngFor="let count of counts; let i = index"
+[ngStyle]="{backgroundColor: i >= 4 ? 'blue': 'white'}"  
+[ngClass]="{log: i >= 4}"
+>{{count}}</div>
+<!-- below is when you do not set index -->
+<!-- [ngStyle]="{backgroundColor: count >= 5 ? 'blue': 'white'}"  --> 
+<!-- the one being used is when you set index -->
