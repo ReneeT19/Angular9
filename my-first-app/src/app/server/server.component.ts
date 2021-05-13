@@ -11,6 +11,7 @@ export class ServerComponent  {
   serverId: number;
   isOnline: boolean;
   isSubmitted = false;
+  userName = "";
 
   getServerStatus() {
     this.isSubmitted = true;
@@ -43,10 +44,11 @@ export class ServerComponent  {
 
   //event binding
   serverCreationStatus = 'No server was created!';
-  serverName = "";
+  // serverName = "";
+  serverName = "two-way binding"; //  two-way binding
 
   onCreateServer() {
-    this.serverCreationStatus = "Server was created!";
+    this.serverCreationStatus = "Server was created and the name is " + this.serverName;
   }
 
   onUpdateServerName(event: Event) {
