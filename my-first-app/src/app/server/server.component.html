@@ -1,24 +1,25 @@
-<label>Server name</label><br>
+<!-- <label>Server name</label><br>
 <input type="text" [(ngModel)]="name"><br>
 <label>Server Id</label><br>
 <input type="text" [(ngModel)]="serverId"><br>
 <label>Server name update</label><br>
 <input type="text" class="form-control" (input)="onUpdateServerName($event)">
 <!-- two way binding -->
-<input type="text" class="form-control" [(ngModel)]="serverName">
-<hr>
+<!-- <input type="text" class="form-control" [(ngModel)]="serverName">
+<hr> -->
 <!-- <p>{{serverName}}</p><br>  -->
 <!-- practice twoway binding -->
-<label>Two-way binding username practice</label><br>
+<!-- <label>Two-way binding username practice</label><br>
 <input type="text" class="form-control" [(ngModel)]="userName">
 <p *ngIf="serverCreated; else noServer">The username is {{userName}}</p>
 <ng-template #noServer><p>Nothing created</p></ng-template><br>
-<button class="btn btn-primary" (click)="userName = ''" [disabled]="userName === ''">Reset User</button>
+<button class="btn btn-primary" (click)="userName = ''" [disabled]="userName === ''">Reset User</button> -->
 
 <!-- <button class="btn btn-primary" (click)="getServerStatus()" (click)="onCreateServer()" [disabled]="!allowNewServer">Add Server</button> -->
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p>
 <p>Server is created. Server name is {{ name }} and the id is {{ serverId }}</p>
 
+//nest components
 <div *ngIf="isSubmitted">
     <div *ngIf="isOnline; else offline">
         <app-success-alert></app-success-alert>
@@ -29,11 +30,11 @@
     </div>
 
 <hr>
-<h3>Below is output from the tutorial practice</h3>
+<h3>Below is output from the tutorial practice</h3> -->
 <!-- string interpolation practice -->
 <p [ngStyle]="{backgroundColor: getColor()}"
 [ngClass]="{online: serverStatus === 'online'}"> {{ 'Server' }} with id {{ serverId2 }} is {{ serverStatus }} </p>
-<p> {{ 'Server' }} with id {{ serverId2 }} is {{ getServerStatus2() }} </p>
+<!-- <p> {{ 'Server' }} with id {{ serverId2 }} is {{ getServerStatus2() }} </p> -->
 
 
 
