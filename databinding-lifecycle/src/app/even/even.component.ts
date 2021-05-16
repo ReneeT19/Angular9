@@ -12,5 +12,4 @@ export class EvenComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

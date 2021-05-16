@@ -25,9 +25,4 @@ export class GameControlComponent implements OnInit {
   onPauseGame() {
     clearInterval(this.interval);
   }
-  // onAddServer(nameInput: HTMLInputElement) {
-  //   // console.log(nameInput);
-  //   //you can replace this.newServerName below with nameInput
-  //   this.serverCreated.emit({serverName: nameInput.value, serverContent: this.serverContentInput.nativeElement.value});
-  // }
 }
