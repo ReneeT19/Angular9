@@ -1,9 +1,13 @@
 <div class="row">
     <!-- we set col-md-12 in the app html so here we divided it to 5 and 7 -->
     <div class="col-md-5">
-        <app-recipe-list></app-recipe-list>
+        <app-recipe-list
+        (recipeWasSelected)="selectedRecipe = $event"></app-recipe-list>
     </div>
     <div class="col-md-7">
-        <app-recipe-detail></app-recipe-detail>
+        <app-recipe-detail
+        *ngIf="selectedRecipe; else infoText"
+        [recipe]="selectedRecipe"></app-recipe-detail>
+        <ng-template #infoText>Please select a recipe!</ng-template>
     </div>
 </div>
