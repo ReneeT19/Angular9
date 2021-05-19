@@ -6,6 +6,7 @@
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
       <br><br>
       <ul class="list-group">
+
         <div *ngIf="onlyOdd">
           <li
           class="list-group-item"
@@ -16,24 +17,42 @@
           {{ odd }}
         </li>
           </div>
-        <div *ngIf="!onlyOdd">
+        <!-- comment the below out because we created a custom directive -->
+        <!-- <div *ngIf="!onlyOdd">
         <li
         class="list-group-item"
         [ngClass]="{odd: even % 2 !== 0}"
         [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
-        *ngFor="let even of evenNumbers"
-      >
+        *ngFor="let even of evenNumbers">
         {{ even }}
-      </li>
+      </li> -->
+            <!-- <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template> -->
+    <!-- </div> -->
+
+    <!-- implement the custom unless directive -->
+
+    <div *appUnless="onlyOdd">
+      <li
+      class="list-group-item"
+      [ngClass]="{odd: even % 2 !== 0}"
+      [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+      *ngFor="let even of evenNumbers">
+      {{ even }}
+    </li>
     </div>
+  </ul>
     <p appBasicHighlight>Custom Basic Directive Styling</p>
     <p appBetterHighlight
     [defaultColor]="'red'"
     highlightColor="purple">Custom Better Directive Styling</p>
-      </ul>
-      <!-- <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
-      </ng-template> -->
+    <!-- implement ngSwtich -->
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="5">Value is 5</p>
+    <p *ngSwitchCase="10">Value is 10</p>
+    <p *ngSwitchDefault>Value is Default</p>
+  </div>
     </div>
   </div>
 </div>
