@@ -27,7 +27,9 @@
       </li>
     </div>
     <p appBasicHighlight>Custom Basic Directive Styling</p>
-    <p appBetterHighlight>Custom Better Directive Styling</p>
+    <p appBetterHighlight
+    [defaultColor]="'red'"
+    highlightColor="purple">Custom Better Directive Styling</p>
       </ul>
       <!-- <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
