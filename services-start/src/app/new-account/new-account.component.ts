@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import {loggingService} from './shared/logging.service';
 
 @Component({
   selector: 'app-new-account',
@@ -8,11 +9,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class NewAccountComponent {
   @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
 
+  //inject service
+  constructor(private loggingService: LoggingService) {}
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountAdded.emit({
       name: accountName,
       status: accountStatus
     });
-    console.log('A server status changed, new status: ' + accountStatus);
+    // inject service instead of line 17
+    // console.log('A server status changed, new status: ' + accountStatus);
+
   }
 }
