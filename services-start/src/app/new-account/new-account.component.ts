@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {loggingService} from './shared/logging.service';
+import { LoggingService } from '../shared/logging.service';
 
 @Component({
   selector: 'app-new-account',
@@ -16,6 +16,7 @@ export class NewAccountComponent {
       name: accountName,
       status: accountStatus
     });
+    this.loggingService.logStatusChange(accountStatus);
     // inject service instead of line 17
     // console.log('A server status changed, new status: ' + accountStatus);
 
