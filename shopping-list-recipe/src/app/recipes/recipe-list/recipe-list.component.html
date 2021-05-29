@@ -9,7 +9,9 @@
         <app-recipe-item
         *ngFor="let recipeEl of recipes"
         [recipe]="recipeEl"
-        (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-item>
+        >
+        <!-- (recipeSelected)="onRecipeSelected(recipeEl)" was in line 12 inside of the tag but now we use service -->
+    </app-recipe-item>
     </div>
 </div>
 
