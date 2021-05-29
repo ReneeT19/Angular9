@@ -19,6 +19,9 @@ export class AccountComponent {
     //inject service instead of emit and output
     // this.statusChanged.emit({id: this.id, newStatus: status});
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    // comment out the line below to practice injecting the loggingservice into accountservice
+    // this.loggingService.logStatusChange(status);
+
+    this.accountsService.statusUpdated.emit(status);
   }
 }

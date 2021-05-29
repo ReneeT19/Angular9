@@ -12,7 +12,11 @@ export class NewAccountComponent {
 
   //inject service
   constructor(private loggingService: LoggingService,
-              private accountsService: AccountsService) {}
+              private accountsService: AccountsService) {
+    this.accountsService.statusUpdated.subscribe(
+      (status:string) => alert('New Status: ' + status)
+    );
+    }
   onCreateAccount(accountName: string, accountStatus: string) {
     //inject accountsservice to replace the following code and add accountsService addAccount function
     // this.accountAdded.emit({
@@ -20,7 +24,8 @@ export class NewAccountComponent {
     //   status: accountStatus
     // });
     this.accountsService.addAccount(accountName,accountStatus);
-    this.loggingService.logStatusChange(accountStatus);
+    // comment out the line below to practice injecting the loggingservice into accountservice
+    // this.loggingService.logStatusChange(accountStatus);
     // inject service instead of line 17
     // console.log('A server status changed, new status: ' + accountStatus);
 
