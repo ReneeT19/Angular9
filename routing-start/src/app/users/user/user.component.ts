@@ -23,7 +23,7 @@ export class UserComponent implements OnInit, OnDestroy {
     .subscribe(
       (params: Params) => {
         this.user.id=params['id'];
-        this.user.id=params['name'];
+        this.user.name=params['name'];
       }
     );
   }
