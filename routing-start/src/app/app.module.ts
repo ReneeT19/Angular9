@@ -12,6 +12,8 @@ import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 // const appRoutes: Routes = [
 //   { path: '', component: HomeComponent},
@@ -45,7 +47,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule
     // RouterModule.forRoot(appRoutes),
   ],
-  providers: [ServersService],
+  providers: [ServersService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
