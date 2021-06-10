@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
@@ -16,12 +17,14 @@ export class RecipeListComponent implements OnInit {
   //   new Recipe('Fish blended with bok choy', 'This is what made Soren vomit', 'https://www.deegourmetgoddess.com/wp/wp-content/uploads/2017/10/1-steamed-ginger-shallot-fish-67005-1-640x400.jpg')
   // ];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
   }
-
+  onNewRecipe() {
+    this.router.navigate(['new'], {relativeTo: this.route});
+  }
   // onRecipeSelected(recipe: Recipe) {
   //   this.recipeWasSelected.emit(recipe);
   // }
