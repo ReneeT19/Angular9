@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { CustomValidators } from './custom-validators';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class AppComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup;
   forbiddenUsernames = ['Chris', 'Anna'];
+  // form practice
+  projectForm: FormGroup;
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -45,6 +48,13 @@ export class AppComponent implements OnInit {
       'userData': {
         'username': 'Anna',
       }
+    });
+
+    // form practice
+    this.projectForm = new FormGroup({
+      'projectName': new FormControl(null, [Validators.required, CustomValidators.invalidProjectName], CustomValidators.asyncInvalidProjectName),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'projectStatus': new FormControl('critical')
     });
   }
 
@@ -83,4 +93,9 @@ export class AppComponent implements OnInit {
     return promise;
   }
 
+
+  // form practice
+  onSaveProject() {
+    console.log(this.projectForm.value);
+  }
 }
